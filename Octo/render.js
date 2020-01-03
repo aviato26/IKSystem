@@ -14,7 +14,7 @@ let animate = () => {
 
   body.show();
 //  tentacle.draw();
-  body.applyGravity(35)
+  body.applyGravity(16)
 
   for(let i = 0; i < body.dots.length; i++){
     body.dots[i].draw();
@@ -27,9 +27,15 @@ let animate = () => {
 
 }
 
-document.addEventListener('keydown', () => {
-  vel += 0.9
-  body.x += vel
+document.addEventListener('keydown', (e) => {
+  if(e.code === "ArrowRight"){
+    vel += 0.9
+    body.y -= vel
+  }
+  else if(e.code === "ArrowLeft"){
+    vel -= 0.9
+    body.x += vel
+  }
 })
 
 animate()
